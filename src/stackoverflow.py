@@ -3,7 +3,9 @@
 
 import sys
 
-from workflow import Workflow, ICON_ERROR
+from workflow import Workflow, ICON_ERROR, ICON_INFO
+
+__version__ = '1.0'
 
 def main(wf):
   from lxml import html
@@ -13,6 +15,12 @@ def main(wf):
   import re
 
   def search(query):
+    if wf.update_available:
+      wf.add_item('New version available',
+                  'Press enter install the update',
+                  autocomplete='workflow:update',
+                  icon=ICON_INFO)
+
     if query.startswith("answer:"):
       show_answers_for_question(query.replace("answer:", ""))
       return
@@ -140,5 +148,10 @@ def main(wf):
   search(wf.args[0])
 
 if __name__ == '__main__':
-    wf = Workflow(libraries=['./lib'])
+    wf = Workflow(libraries=['./lib'], update_settings={
+        'github_slug': 'Que3216/alfred-stack-overflow',
+        'version': __version__,
+        # Optional number of days between checks for updates
+        'frequency': 3
+    })
     sys.exit(wf.run(main))
