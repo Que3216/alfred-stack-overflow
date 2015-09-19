@@ -5,7 +5,7 @@ import sys
 
 from workflow import Workflow, ICON_ERROR, ICON_INFO
 
-__version__ = '1.1'
+__version__ = '1.2'
 
 def main(wf):
   from lxml import html
