@@ -41,10 +41,11 @@ def main(wf):
           numResults = numResults + 1
           question = get_question_title(stackoverflowResponse)
           output_answer(url, question, answers[0], "Best answer for: ")
+          wf.add_item("Other Questions:", "(press TAB or ENTER to view answers)")
       else:
         wf.add_item(
-          "Question: " + re.search("/([^/]*)$", url).group(1).replace("-", " "), 
-          "Press TAB or ENTER to view answers",
+          re.search("/([^/]*)$", url).group(1).replace("-", " "), 
+          "",
           copytext = url,
           autocomplete = "answer:" + url,
           arg = url,
