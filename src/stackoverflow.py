@@ -152,6 +152,6 @@ if __name__ == '__main__':
         'github_slug': 'Que3216/alfred-stack-overflow',
         'version': __version__,
         # Optional number of days between checks for updates
-        'frequency': 3
+        'frequency': 1
     })
     sys.exit(wf.run(main))

@@ -1,6 +1,6 @@
 ## Alfred Stack Overflow
 
-Gets you answers to simple questions like *"python function syntax"*, without having to open your web browser:
+Get answers to simple questions like *"python function syntax"*, without having to open your web browser:
 
 ![Alt text](demo.gif?raw=true "Demo of searching for the python lambda syntax")
 
